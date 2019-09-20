@@ -13,8 +13,10 @@ export default class Todos extends React.Component {
     todos: []
   };
   componentDidMount() {
+    //TODO finish learning this
     Axios.get;
   }
+  //TODO refactor for component usage
   render() {
     return (
       <div className="container">
