@@ -1,12 +1,12 @@
 import React from "react";
 import Axios from "axios";
 
-let baseUrl = location.host.includes("localhost") ? "//localhost:5000/" : "/";
+// let baseUrl = location.host.includes("localhost") ? "//localhost:5000/" : "/";
 
-let api = Axios.create({
-  baseURL: baseUrl + "api/",
-  timeout: 3000
-});
+// let api = Axios.create({
+//   baseURL: baseUrl + "api/",
+//   timeout: 3000
+// });
 
 export default class Todos extends React.Component {
   state = {
@@ -14,7 +14,7 @@ export default class Todos extends React.Component {
   };
   componentDidMount() {
     //TODO finish learning this
-    Axios.get;
+    // Axios.get;
   }
   //TODO refactor for component usage
   render() {
