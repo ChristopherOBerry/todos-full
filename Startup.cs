@@ -29,6 +29,19 @@ namespace todos_full
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+                {
+                    options.AddPolicy("CorsDevPolicy", builder =>
+                    {
+                        builder
+                            .WithOrigins(new string[]{
+                                "http://localhost:3000"
+                            })
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .AllowCredentials();
+                    });
+                });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddTransient<IDbConnection>(x => CreateDBContext());
             services.AddTransient<TodosRepository>();
@@ -47,6 +60,7 @@ namespace todos_full
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("CorsDevPolicy");
             }
             else
             {
@@ -55,6 +69,8 @@ namespace todos_full
             }
 
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMvc();
 
         }

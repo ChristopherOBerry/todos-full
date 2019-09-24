@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-// using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using todos_full.Models;
 using todos_full.Repositories;
 using System.Security.Claims;
@@ -9,6 +9,7 @@ using System.Security.Claims;
 
 namespace todos_full.Controllers
 {
+    [Authorize]
     [Route("api/[Controller]")]
     [ApiController]
     public class TodosController : ControllerBase
